@@ -1,0 +1,100 @@
+/* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Form container */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack forms vertically */
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Staff info at top right */
+.staff-info {
+    text-align: right;
+    width: 100%; /* Ensure it takes full width */
+    margin-bottom: 20px; /* Space between staff info and forms */
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Form styling */
+.form-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    color: #4b5563;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #60a5fa;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
