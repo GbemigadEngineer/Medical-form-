@@ -37,8 +37,7 @@ document.querySelector("#next-btn").addEventListener("click", function (event) {
     };
 
     // Save the updated patientDatabase to localStorage
-    localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase));
-    document.querySelector("#patient-info").style.display = "none";
+    localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase))
     document.querySelector("#medical-exam").style.display = "block";
   } else {
     alert("All patient info feilds needs to be filled.");
@@ -128,7 +127,6 @@ submitBtn.addEventListener("click", function (event) {
 
         localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase));
         alert("Saved to database successfully.");
-        document.querySelector("#medical-exam").style.display = "none";
-        document.querySelector("#patient-info").style.display = "block";
+        document.querySelector("#physical-Abnormality").style.display = "block";
     }
 });
