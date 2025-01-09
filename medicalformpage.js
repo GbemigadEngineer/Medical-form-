@@ -130,3 +130,26 @@ submitBtn.addEventListener("click", function (event) {
         document.querySelector("#physical-Abnormality").style.display = "block";
     }
 });
+
+
+// Physical Abnormality
+
+document.getElementById('submit-btn').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  const form = document.querySelector('#physical-Abnormality form');
+  const inputs = form.querySelectorAll('input');
+
+  inputs.forEach(input => {
+      if (input.value.trim() === '') {
+          if (input.type === 'number') {
+              input.value = 'Nill'; // Allow 'Nill' or 'None' for number fields
+          } else {
+              input.value = 'Nill'; // For text fields, set to Nill
+          }
+      }
+  });
+
+  // After filling, you can submit the form
+  form.submit();
+});
