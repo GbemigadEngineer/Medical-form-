@@ -134,11 +134,13 @@ submitBtn.addEventListener("click", function (event) {
 
 // Physical Abnormality
 
-document.getElementById('submit-btn').addEventListener('click', function(event) {
+document.getElementById('submit-btn-abn').addEventListener('click', function(event) {
   event.preventDefault(); // Prevent form submission
 
   const form = document.querySelector('#physical-Abnormality form');
   const inputs = form.querySelectorAll('input');
+
+  const abnormalities = {}
 
   inputs.forEach(input => {
       if (input.value.trim() === '') {
@@ -148,8 +150,50 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
               input.value = 'Nill'; // For text fields, set to Nill
           }
       }
+
+      abnormalities[input.id] = input.value;
   });
 
   // After filling, you can submit the form
-  form.submit();
+  const patientID = Object.keys(patientDatabase).pop(); // Assuming the most recent patient is the last key
+  if (patientID) {
+    // Retrieve the patient's data, update with abnormalities
+    if (patientDatabase[patientID]) {
+      patientDatabase[patientID].abnormalities = abnormalities; // Add or update abnormalities data
+      localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase));
+      alert("Abnormalities added/updated successfully.");
+
+    } else {
+      alert("Patient not found in the database.");
+    }
+  } else {
+    alert("No patient record found to update.");
+  }
+
 });
+
+// confirmation page!
+
+document.querySelectorAll(".confirm").forEach(checkbox => {
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      // Hide all other checkboxes
+      document.querySelectorAll(".confirm").forEach(cb => {
+        if (cb !== this) {
+          cb.style.display = "none"; // Hide the checkbox itself
+          cb.nextElementSibling.style.display = "none"; // Hide the associated label
+        }
+      });
+    } else {
+      // Show all checkboxes again if unchecked
+      document.querySelectorAll(".confirm").forEach(cb => {
+        cb.style.display = "inline-block"; // Show the checkbox itself
+        cb.nextElementSibling.style.display = "inline"; // Show the associated label
+      });
+    }
+  });
+});
+
+
+
+
