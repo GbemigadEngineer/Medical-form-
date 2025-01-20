@@ -124,9 +124,12 @@ document.getElementById('submit-btn-abn').addEventListener('click', function(eve
 
 // confirmation page!
 
+let ischecked;
 document.querySelectorAll(".confirm").forEach(checkbox => {
   checkbox.addEventListener("change", function () {
     if (this.checked) {
+      // Make ischecked true if any checkbox is checked
+      ischecked = true;
       // Hide all other checkboxes
       document.querySelectorAll(".confirm").forEach(cb => {
         if (cb !== this) {
@@ -136,6 +139,8 @@ document.querySelectorAll(".confirm").forEach(checkbox => {
       });
       document.querySelector('#medical-officer-info').style.marginTop = "10x";
     } else {
+      // Make ischecked false if no checkbox is checked
+      ischecked=false
       // Show all checkboxes again if unchecked
       document.querySelectorAll(".confirm").forEach(cb => {
         cb.style.display = "inline-block"; // Show the checkbox itself
@@ -162,9 +167,19 @@ const medical_officer = document.querySelector('#medical-officer');
 
 
 save_Submitbtn.addEventListener('click', function(event) {
-  if(medical_officer.value !== '' && date.value !== '') {
-    alert('Form submitted successfully');
-  } else{
-    alert('Please fill in the Medical Officer and Date fields');
+  // check if ischecked is true or false
+  if(ischecked ===true){
+    // if ischecked is true, check if the medical officer and date fields are filled
+    if(medical_officer.value !== '' && date.value !== '') {
+      // if they are filled confirm succesful submission!
+      alert('Form submitted successfully');
+    } else{
+      // if they are not true alert the user to fill in the fields
+      alert('Please fill in the Medical Officer and Date fields');
+    }
+    // if isckecked is false alert the user to confirm the form submission
+  }else{
+
+    alert('You need to confirm the form submission, tick a checkbox to confirm submission');
   }
 })
