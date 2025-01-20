@@ -1,14 +1,6 @@
 "use strict";
-// Patient ID Generator. TBh i dont really get this i asked chat gpt to help me generate patient ID so i can use as key in my database.
-function generatePatientID() {
-  let counter = parseInt(localStorage.getItem("patientCounter")) || 0;
-  counter++;
-  localStorage.setItem("patientCounter", counter);
-  return "patient" + String(counter).padStart(3, "0"); // e.g., patient001, patient002
-}
 
-//  Initializing the patientDatabase. Again another thing i dont know in javascript yet, used chatgpt here
-let patientDatabase = JSON.parse(localStorage.getItem("patientDatabase")) || {};
+
 
 // Retrieve the staff ID from the URL and display it
 const urlParams = new URLSearchParams(window.location.search);
@@ -24,20 +16,6 @@ document.querySelector("#next-btn").addEventListener("click", function (event) {
     document.querySelector("#patient-age").value !== "" &&
     document.querySelector("#patient-gender").value !== ""
   ) {
-    // Generate the patient id
-    const patientID = generatePatientID();
-
-    // Add new patient in the database
-    patientDatabase = {
-      [patientID]: {
-        name: document.querySelector("#patient-name").value,
-        age: document.querySelector("#patient-age").value,
-        gender: document.querySelector("#patient-gender").value,
-      },
-    };
-
-    // Save the updated patientDatabase to localStorage
-    localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase))
     document.querySelector("#medical-exam").style.display = "block";
   } else {
     alert("All patient info feilds needs to be filled.");
@@ -114,19 +92,6 @@ submitBtn.addEventListener("click", function (event) {
         alert("Please correct the errors in the form.");
         firstInvalidField.scrollIntoView({ behavior: "smooth" });
     } else {
-        const patientID = generatePatientID();
-        patientDatabase[patientID] = {
-            bloodPressure: document.querySelector("#blood-pressure").value,
-            pulse: document.querySelector("#pulse").value,
-            weight: document.querySelector("#weight").value,
-            height: document.querySelector("#height").value,
-            bmi: document.querySelector("#bmi").value,
-            oxygen: document.querySelector("#oxygen").value,
-            temperature: document.querySelector("#temperature").value,
-        };
-
-        localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase));
-        alert("Saved to database successfully.");
         document.querySelector("#physical-Abnormality").style.display = "block";
     }
 });
@@ -155,21 +120,6 @@ document.getElementById('submit-btn-abn').addEventListener('click', function(eve
   });
 
   // After filling, you can submit the form
-  const patientID = Object.keys(patientDatabase).pop(); // Assuming the most recent patient is the last key
-  if (patientID) {
-    // Retrieve the patient's data, update with abnormalities
-    if (patientDatabase[patientID]) {
-      patientDatabase[patientID].abnormalities = abnormalities; // Add or update abnormalities data
-      localStorage.setItem("patientDatabase", JSON.stringify(patientDatabase));
-      alert("Abnormalities added/updated successfully.");
-
-    } else {
-      alert("Patient not found in the database.");
-    }
-  } else {
-    alert("No patient record found to update.");
-  }
-
 });
 
 // confirmation page!
