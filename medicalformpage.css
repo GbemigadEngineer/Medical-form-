@@ -137,7 +137,7 @@ button:hover {
     transition: border 0.3s ease;
 }
 
-.confirm-btns{
+.save-submit-btn{
     width: 200px;
     margin-top: 15px;
 }

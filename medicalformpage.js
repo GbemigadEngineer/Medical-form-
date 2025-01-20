@@ -119,7 +119,7 @@ document.getElementById('submit-btn-abn').addEventListener('click', function(eve
       abnormalities[input.id] = input.value;
   });
 
-  // After filling, you can submit the form
+  document.querySelector('.confirmation').style.display = 'block';
 });
 
 // confirmation page!
@@ -148,16 +148,23 @@ document.querySelectorAll(".confirm").forEach(checkbox => {
 
 // confirmation section
 
+// autodate based on the user locale
 const date = document.querySelector('#date')
 const today = new Date();
 const formatter = new Intl.DateTimeFormat('default'); // Uses system's default locale
-
-
 
 date.addEventListener('focus', function() {
   date.value = formatter.format(today);
 });
 
+const save_Submitbtn = document.querySelector('.save-submit-btn');
+const medical_officer = document.querySelector('#medical-officer');
 
 
-
+save_Submitbtn.addEventListener('click', function(event) {
+  if(medical_officer.value !== '' && date.value !== '') {
+    alert('Form submitted successfully');
+  } else{
+    alert('Please fill in the Medical Officer and Date fields');
+  }
+})
