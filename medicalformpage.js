@@ -134,14 +134,28 @@ document.querySelectorAll(".confirm").forEach(checkbox => {
           cb.nextElementSibling.style.display = "none"; // Hide the associated label
         }
       });
+      document.querySelector('#medical-officer-info').style.marginTop = "10x";
     } else {
       // Show all checkboxes again if unchecked
       document.querySelectorAll(".confirm").forEach(cb => {
         cb.style.display = "inline-block"; // Show the checkbox itself
         cb.nextElementSibling.style.display = "inline"; // Show the associated label
       });
+      document.querySelector('#medical-officer-info').style.marginTop = "10px";
     }
   });
+});
+
+// confirmation section
+
+const date = document.querySelector('#date')
+const today = new Date();
+const formatter = new Intl.DateTimeFormat('default'); // Uses system's default locale
+
+
+
+date.addEventListener('focus', function() {
+  date.value = formatter.format(today);
 });
 
 

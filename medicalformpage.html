@@ -74,49 +74,51 @@
                 <button type="submit" id="submit-btn">Next</button>
             </form>
         </div>
+
+        <div id="physical-Abnormality" class="form-box" style="display: none;" >
+            <h2>Physical Abnormalities</h2>
+            <form>
+                <div class="input-group">
+                    <label for="skin">Skin</label>
+                    <input type="text" id="skin" name="skin" required>
+                </div>
+                <div class="input-group">
+                    <label for="ear">Ear</label>
+                    <input type="text" id="ear" name="ear" required>
+                </div>
+                <div class="input-group">
+                    <label for="eye">Eye</label>   
+    
+                    <input type="text" id="eye" name="eye" required>
+                </div>
+                <div class="input-group">
+                    <label for="nose">Nose</label>
+                    <input type="text" id="eye" name="eye" required>
+                </div>
+                <div class="input-group">
+                    <label for="chest">Chest</label>
+                    <input type="text" id="chest" name="chest" required>
+                </div>
+                <div class="input-group">
+                    <label for="rs">Respiratory System</label>
+                    <input type="text" id="r-s" name="r-s" required>
+                </div>
+                <div class="input-group">
+                    <label for="blood-group">Blood-group</label>
+                    <input type="text" id="blood-group" name="blood-group" required>
+                </div>
+                <div class="input-group">
+                    <label for="blood-glucose">Blood-glucose</label>
+                    <input type="number" id="blood-glucose" name="blood-glucose" required>
+                </div>
+                <button type="submit" id="submit-btn-abn">Submit</button>
+            </form>
+        </div>
+    
     </div>
 
 
-    <div id="physical-Abnormality" class="form-box" style="display: none;" >
-        <h2>Physical Abnormalities</h2>
-        <form>
-            <div class="input-group">
-                <label for="skin">Skin</label>
-                <input type="text" id="skin" name="skin" required>
-            </div>
-            <div class="input-group">
-                <label for="ear">Ear</label>
-                <input type="text" id="ear" name="ear" required>
-            </div>
-            <div class="input-group">
-                <label for="eye">Eye</label>   
-
-                <input type="text" id="eye" name="eye" required>
-            </div>
-            <div class="input-group">
-                <label for="nose">Nose</label>
-                <input type="text" id="eye" name="eye" required>
-            </div>
-            <div class="input-group">
-                <label for="chest">Chest</label>
-                <input type="text" id="chest" name="chest" required>
-            </div>
-            <div class="input-group">
-                <label for="rs">Respiratory System</label>
-                <input type="text" id="r-s" name="r-s" required>
-            </div>
-            <div class="input-group">
-                <label for="blood-group">Blood-group</label>
-                <input type="text" id="blood-group" name="blood-group" required>
-            </div>
-            <div class="input-group">
-                <label for="blood-glucose">Blood-glucose</label>
-                <input type="number" id="blood-glucose" name="blood-glucose" required>
-            </div>
-            <button type="submit" id="submit-btn-abn">Submit</button>
-        </form>
-    </div>
-
+    
     <div class="confirmation" style="display: block">
         <h2>Confirmation!</h2>
         <p>I hearby confirm that I have medically examined the above named patient and i am of the opinion that he or she: </p>
@@ -135,9 +137,16 @@
             <label for="confirm">Is not fit</label>
         </div>
         <p>by the reason of our medical examination/investigation.</p>
-        <div>
-            
+        <div id="medical-officer-info">
+
+            <label for="Medical-officer-name">Medical Officer</label>
+                    <input type="text" id="medical-officer" name="medical officer" required>
+            <label for="date"> Date</label>
+                    <input  id="date" name="date" required>
         </div>
+
+        <div class="save-submit-btn">
+            <button type="submit" class="confirm-btns"> Save & Submit</button>      
     </div>
 
 

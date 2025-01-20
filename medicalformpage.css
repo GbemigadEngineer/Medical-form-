@@ -113,3 +113,31 @@ button:hover {
     margin-bottom: 20px; /* Space between sections */
 }
 
+
+#medical-officer-info{
+    margin-top: 20px;
+}
+
+#medical-officer{
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    outline: none;
+    transition: border 0.3s ease;
+}
+#date{
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #4b5563;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.confirm-btns{
+    width: 200px;
+    margin-top: 15px;
+}
